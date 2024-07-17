@@ -1,93 +1,89 @@
-# Cassiopée-projet
+# GNN Visualisation and Optimization Notebooks
+
+Ce dépôt contient plusieurs notebooks Jupyter pour la visualisation et l'optimisation de modèles de réseaux de neurones graphiques (GNN). Les notebooks couvrent des tâches d'induction et de transduction, ainsi que l'optimisation des hyperparamètres à l'aide d'Optuna.
+
+## Contenu du dépôt
+
+- **Visualisation.ipynb** : Notebook pour visualiser les résultats des modèles GNN.
+- **optuna_transduction.ipynb** : Optimisation des hyperparamètres pour les modèles de transduction à l'aide d'Optuna.
+- **optuna_induction.ipynb** : Optimisation des hyperparamètres pour les modèles d'induction à l'aide d'Optuna.
+- **GATv2_transduction.ipynb** : Implémentation et évaluation du modèle GATv2 pour les tâches de transduction.
+- **GATv2_one_graph.ipynb** : Implémentation du modèle GATv2 sur un seul graphe.
+- **GATv2_induction.ipynb** : Implémentation et évaluation du modèle GATv2 pour les tâches d'induction.
+
+## Prérequis
+
+Assurez-vous d'avoir les éléments suivants installés avant de commencer :
+
+- Python 3.7 ou supérieur
+- Jupyter Notebook
+- Bibliothèques Python :
+  - numpy
+  - pandas
+  - matplotlib
+  - torch
+  - torch-geometric
+  - optuna
+
+Vous pouvez installer les bibliothèques nécessaires en exécutant la commande suivante :
+
+```bash
+pip install numpy pandas matplotlib torch torch-geometric optuna
+
+Utilisation
+
+Étape 0 : Organiser ses dossiers avec les données
+
+BLCA_DATA/
+├── CLINICAL
+│ └── PROCESSED
+├── HISTO
+│ └── PROCESSED
+│     ├── DIAGNOSTIC_SLIDES
+│     └── TISSUE_SLIDES
+├── labels_onehot.csv
+├── labels_str.csv
+├── node_embedding.csv
+├── node_embedding.pt
+├── OMICS
+│ └── PROCESSED
+│     ├── gene-expression_norm.csv
+│     ├── methylation_norm.csv
+│     ├── mirna-expression_norm.csv
+│     └── protein-expression_norm.csv
+└── Workspace
+    ├── labels_str.csv
+    ├── labels_str_Norm_weights.csv
+    ├── node_embedding.csv
+    └── patient_norm.csv
+
+cassiopee-projet-main/
+*travaillez ici*
+
+Organisez vos dossiers selon le modèle suivant : 
 
 
+Étape 1 : Cloner le dépôt
 
-## Getting started
+Clonez le dépôt sur votre machine locale en utilisant la commande suivante :
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+bash
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+git clone https://github.com/votre-utilisateur/votre-repo.git
+cd votre-repo
 
-## Add your files
+Étape 2 : Exécuter les notebooks
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Ouvrez Jupyter Notebook et accédez aux différents notebooks pour les exécuter :
 
-```
-cd existing_repo
-git remote add origin https://gitlabens.imtbs-tsp.eu/valentin.dorard/cassiopee-projet.git
-git branch -M main
-git push -uf origin main
-```
+bash
 
-## Integrate with your tools
+jupyter notebook
 
-- [ ] [Set up project integrations](https://gitlabens.imtbs-tsp.eu/valentin.dorard/cassiopee-projet/-/settings/integrations)
+Étape 3 : Explorer les notebooks
 
-## Collaborate with your team
+    Visualisation.ipynb : Ce notebook vous permet de visualiser les résultats des différents modèles GNN. Vous pouvez ajuster les paramètres de visualisation selon vos besoins.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+    optuna_transduction.ipynb et optuna_induction.ipynb : Utilisez ces notebooks pour optimiser les hyperparamètres des modèles de transduction et d'induction respectivement. Optuna est utilisé pour trouver les meilleures combinaisons d'hyperparamètres.
 
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+    GATv2_transduction.ipynb, GATv2_one_graph.ipynb, GATv2_induction.ipynb : Ces notebooks contiennent des implémentations spécifiques du modèle GATv2 pour différentes tâches. Vous pouvez évaluer les performances du modèle et ajuster les paramètres pour améliorer les résultats.
